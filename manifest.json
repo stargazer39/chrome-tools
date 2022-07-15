@@ -1,0 +1,31 @@
+{
+    "name": "Getting Started Example",
+    "description": "Build an Extension!",
+    "version": "1.0",
+    "manifest_version": 3,
+    "action": {
+        "default_popup": "popup/index.html"
+    },
+    "permissions": [
+        "tabs"
+    ],
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "background": {
+        "service_worker": "worker.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "css": [
+                "content-script/styles.css"
+            ],
+            "js": [
+                "content-script/content-script.js"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url("https://cdn.jsdelivr.net/npm/@xz/fonts@1/serve/cascadia-code.min.css");
+
+body {
+    font-family: 'Cascadia Code', sans-serif;
+}
+
+#root {
+    width: 30em;
+    height: 40em;
+}
