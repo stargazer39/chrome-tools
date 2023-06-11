@@ -4,8 +4,11 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import replace from '@rollup/plugin-replace';
 import postcss from 'rollup-plugin-postcss';
-import autoprefixer from 'autoprefixer'
-import tailwindcss from 'tailwindcss'
+import terser from '@rollup/plugin-terser';
+
+const resolveParams = {
+  browser: true
+}
 
 const popup =  {
   input: "popup/index.tsx",
@@ -30,8 +33,9 @@ const popup =  {
         preventAssignment: true
     }),
     resolve(),
-    commonjs(),
+    commonjs(resolveParams),
     typescript(),
+    terser(),
     copy({
         targets: [
             { src: 'popup/*.html', dest: 'dist/popup/' },
@@ -51,7 +55,7 @@ const worker = {
   },
   plugins:[
     resolve(),
-    commonjs(),
+    commonjs(resolveParams),
     typescript(),
   ]
 }
@@ -65,7 +69,7 @@ const content_script = {
   },
   plugins:[
     resolve(),
-    commonjs(),
+    commonjs(resolveParams),
     typescript(),
     copy({
         targets: [
