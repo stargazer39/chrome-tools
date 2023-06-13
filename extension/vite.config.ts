@@ -32,7 +32,7 @@ export default defineConfig({
           dest: ".",
         },
         {
-          src: "contentScript/contentStyles.css",
+          src: "src/contentScript/contentStyles.css",
           dest: ".",
         },
       ],
